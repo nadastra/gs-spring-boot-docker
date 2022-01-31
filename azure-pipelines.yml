@@ -14,6 +14,7 @@ variables:
   imageRepository: 'nadastragsspringbootdocker'
   containerRegistry: 'acrparveenkumar.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/complete/Dockerfile'
+  pomFilePath: '$(Build.SourcesDirectory)/complete/pom.xml'
   tag: '$(Build.BuildId)'
 
   # Agent VM image name
@@ -31,13 +32,14 @@ stages:
     - task: Maven@3
       displayName: Build and push an image to container registry
       inputs:
-        mavenPomFile: 'pom.xml'
+        mavenPomFile: $(pomFilePath)
         mavenOptions: '-Xmx3072m'
         javaHomeOption: 'JDKVersion'
         jdkVersionOption: '1.8'
         jdkArchitectureOption: 'x64'
         publishJUnitResults: true
         testResultsFiles: '**/surefire-reports/TEST-*.xml'
+        goals: spring-boot:build-image 
     - task: Docker@2
       displayName: Build and push an image to container registry
       inputs:
