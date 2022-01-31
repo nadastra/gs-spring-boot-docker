@@ -38,7 +38,7 @@
 					<image>
 						<name>devopsdemo/springbootdocker</name>
 					</image>
-				</configuration							
+				</configuration>						
 			</plugin>
 		</plugins>
 	</build>
