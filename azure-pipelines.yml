@@ -11,7 +11,7 @@ resources:
 variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: '8f698500-1e9e-4236-8e12-da86c9b4f660'
-  imageRepository: 'devopsdemo/springbootdocker'
+  imageRepository: 'docker.io/devopsdemo/springbootdocker:latest'
   containerRegistry: 'acrparveenkumar.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/complete/Dockerfile'
   pomFilePath: '$(Build.SourcesDirectory)/complete/pom.xml'
