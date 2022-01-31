@@ -43,8 +43,9 @@ stages:
     - task: Docker@2
       displayName: Push an image to container registry
       inputs:
-        command: buildAndPush
+        command: 'push'
         repository: $(imageRepository)
         containerRegistry: $(dockerRegistryServiceConnection)
+        buildContext: $(Build.SourcesDirectory)
         tags: |
           $(tag)
