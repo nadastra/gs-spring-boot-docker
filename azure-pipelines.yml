@@ -16,6 +16,8 @@ variables:
   dockerfilePath: '$(Build.SourcesDirectory)/complete/Dockerfile'
   pomFilePath: '$(Build.SourcesDirectory)/complete/pom.xml'
   tag: 'latest'
+  appName: 'hello.application'
+  azureSubscription:
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
@@ -49,3 +51,9 @@ stages:
         buildContext: $(Build.SourcesDirectory)
         tags: |
           $(tag)
+    - task: AzureWebAppContainer@1
+      displayName: 'Azure web app on container deploy'
+      inputs:
+        azureSubscription: $(azureSubscription)
+        appName: $(appName)
+        containers: $(containerRegistry)/$(imageRepository):$(tag)
