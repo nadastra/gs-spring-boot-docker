@@ -16,8 +16,8 @@ variables:
   dockerfilePath: '$(Build.SourcesDirectory)/complete/Dockerfile'
   pomFilePath: '$(Build.SourcesDirectory)/complete/pom.xml'
   tag: 'latest'
-  appName: 'hello.application'
-  azureSubscription:
+  appName: 'spring-app-cont-demo'
+  azureSubscription: 'AzSandpitSubRgPkSvcConn'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
