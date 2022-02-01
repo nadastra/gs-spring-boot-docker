@@ -47,5 +47,3 @@ stages:
         repository: $(imageRepository)
         containerRegistry: $(dockerRegistryServiceConnection)
         buildContext: $(Build.SourcesDirectory)
-        tags: |
-          $(tag)
