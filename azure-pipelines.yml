@@ -11,7 +11,7 @@ resources:
 variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: '8f698500-1e9e-4236-8e12-da86c9b4f660'
-  imageRepository: '$(containerRegistry)/docker.io/devopsdemo/springbootdocker'
+  imageRepository: '$(containerRegistry)/docker.io/springbootdocker'
   containerRegistry: 'acrparveenkumar.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/complete/Dockerfile'
   pomFilePath: '$(Build.SourcesDirectory)/complete/pom.xml'
@@ -30,7 +30,7 @@ stages:
       vmImage: $(vmImageName)
     steps:
     - task: Maven@3
-      displayName: Build and push an image to container registry
+      displayName: Build a docker image
       inputs:
         mavenPomFile: $(pomFilePath)
         mavenOptions: '-Xmx3072m'
